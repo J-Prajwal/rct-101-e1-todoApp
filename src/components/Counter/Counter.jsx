@@ -3,13 +3,14 @@ import styles from "./counter.module.css";
 
 const Counter = () => {
   // sample value to be replaced
-  let count = 0;
+  const [count, handleCount] = React.useState(1);
+  // handleCount(count+val);
   // NOTE: do not delete `data-cy` key value pair
   return (
     <div className={styles.counter}>
-      <button data-cy="task-counter-increment-button"></button>
+      <button data-cy="task-counter-increment-button" value={"+"} onClick={() => {handleCount(count+1)}}>+</button>
       <span data-cy="task-counter-value">{count}</span>
-      <button data-cy="task-counter-decrement-button"></button>
+      <button data-cy="task-counter-decrement-button" value={"-"} onClick={() => {handleCount(count-1)}}>-</button>
     </div>
   );
 };
